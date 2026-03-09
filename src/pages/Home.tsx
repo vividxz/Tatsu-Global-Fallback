@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [counters, setCounters] = useState({ years: 0, projects: 0, experts: 0, uptime: 0 });
 
   const services = [
@@ -105,6 +106,31 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const ensureVideoPlays = () => {
+      if (video.paused) {
+        video.play().catch(() => {
+          // Ignore DOMException for play() interruption
+        });
+      }
+    };
+
+    // Force play on initial load, scroll, and tab visibility changes
+    ensureVideoPlays();
+    window.addEventListener('scroll', ensureVideoPlays, { passive: true });
+    window.addEventListener('touchstart', ensureVideoPlays, { passive: true });
+    document.addEventListener('visibilitychange', ensureVideoPlays);
+
+    return () => {
+      window.removeEventListener('scroll', ensureVideoPlays);
+      window.removeEventListener('touchstart', ensureVideoPlays);
+      document.removeEventListener('visibilitychange', ensureVideoPlays);
+    };
+  }, []);
+
+  useEffect(() => {
     // Counter animation
     const observer = new IntersectionObserver(
       (entries) => {
@@ -155,30 +181,23 @@ const Home = () => {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
         {/* Background Video */}
-        <div 
-          className="absolute inset-0 overflow-hidden bg-[#050505]"
-          dangerouslySetInnerHTML={{
-            __html: `
-              <video
-                src="/Telecom_Website_Hero_Section_Video.mp4"
-                autoplay
-                loop
-                muted
-                playsinline
-                class="w-full h-full object-cover pointer-events-none"
-                style="width: 100%; height: 100%; object-fit: cover; border: none;"
-                disablepictureinpicture
-                controlslist="nodownload noplaybackrate"
-              ></video>
-            `
-          }}
-        />
+        <div className="absolute inset-0 overflow-hidden bg-[#050505]">
+          <video
+            ref={videoRef}
+            src="/Telecom_Website_Hero_Section_Video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+            disablePictureInPicture
+            className="w-full h-full object-cover pointer-events-none"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
 
-        {/* Background Grid */}
-        <div className="absolute inset-0 grid-pattern opacity-20 mix-blend-overlay z-10" />
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/60 to-[#050505] z-10" />
+        {/* Removed grid and thick gradient to ensure high video quality and fast rendering */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/40 to-[#050505] z-10" />
 
         {/* Content */}
         <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
