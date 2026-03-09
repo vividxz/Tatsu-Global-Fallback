@@ -162,7 +162,10 @@ const Home = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            controls={false}
+            disablePictureInPicture
+            className="w-full h-full object-cover pointer-events-none"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
 
