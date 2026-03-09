@@ -155,19 +155,24 @@ const Home = () => {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
         {/* Background Video */}
-        <div className="absolute inset-0 overflow-hidden bg-[#050505]">
-          <video
-            src="/Telecom_Website_Hero_Section_Video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            controls={false}
-            disablePictureInPicture
-            className="w-full h-full object-cover pointer-events-none"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
+        <div 
+          className="absolute inset-0 overflow-hidden bg-[#050505]"
+          dangerouslySetInnerHTML={{
+            __html: `
+              <video
+                src="/Telecom_Website_Hero_Section_Video.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                class="w-full h-full object-cover pointer-events-none"
+                style="width: 100%; height: 100%; object-fit: cover; border: none;"
+                disablepictureinpicture
+                controlslist="nodownload noplaybackrate"
+              ></video>
+            `
+          }}
+        />
 
         {/* Background Grid */}
         <div className="absolute inset-0 grid-pattern opacity-20 mix-blend-overlay z-10" />
