@@ -1,8 +1,16 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Eye, Award, Users, Globe, Shield } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Target,
+  Eye,
+  Award,
+  Users,
+  Globe,
+  Shield,
+} from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,13 +19,13 @@ const About = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+
     const ctx = gsap.context(() => {
-      gsap.from('.about-hero-content', {
+      gsap.from(".about-hero-content", {
         y: 50,
         opacity: 0,
         duration: 1,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
     }, heroRef);
 
@@ -27,40 +35,62 @@ const About = () => {
   const values = [
     {
       icon: Target,
-      title: 'Excellence',
-      description: 'We strive for excellence in every project, delivering results that exceed expectations.',
+      title: "Excellence",
+      description:
+        "We strive for excellence in every project, delivering results that exceed expectations.",
     },
     {
       icon: Shield,
-      title: 'Integrity',
-      description: 'We operate with honesty, transparency, and ethical standards in all our dealings.',
+      title: "Integrity",
+      description:
+        "We operate with honesty, transparency, and ethical standards in all our dealings.",
     },
     {
       icon: Users,
-      title: 'Collaboration',
-      description: 'We work closely with our clients and partners to achieve shared success.',
+      title: "Collaboration",
+      description:
+        "We work closely with our clients and partners to achieve shared success.",
     },
     {
       icon: Globe,
-      title: 'Innovation',
-      description: 'We embrace new technologies and methodologies to stay ahead of the curve.',
+      title: "Innovation",
+      description:
+        "We embrace new technologies and methodologies to stay ahead of the curve.",
     },
   ];
 
-  const milestones = [
-    { year: '2010', event: 'Company founded with telecom focus' },
-    { year: '2013', event: 'Expanded to OFC solutions' },
-    { year: '2016', event: 'Added solar and networking services' },
-    { year: '2019', event: 'Launched IT solutions division' },
-    { year: '2022', event: 'Global expansion to 50+ countries' },
-    { year: '2026', event: '500+ projects completed successfully' },
+  const expertise = [
+    {
+      title: "15+ Years",
+      detail: "Field-tested industry experience from our leadership team.",
+    },
+    {
+      title: "100+",
+      detail: "Projects successfully executed across various sectors.",
+    },
+    {
+      title: "Global View",
+      detail: "Leveraging international best practices in local markets.",
+    },
+    {
+      title: "ISO Ready",
+      detail: "Adherence to the highest quality and safety standards.",
+    },
+    {
+      title: "Agile Team",
+      detail: "Responsive and scalable solutions for modern needs.",
+    },
+    {
+      title: "Future Ready",
+      detail: "Incorporating AI and sustainable energy in every project.",
+    },
   ];
 
   const certifications = [
-    'ISO 9001:2015 - Quality Management',
-    'ISO 14001:2015 - Environmental Management',
-    'OHSAS 18001 - Occupational Health & Safety',
-    'ISO 27001 - Information Security Management',
+    "ISO 9001:2015 - Quality Management",
+    "ISO 14001:2015 - Environmental Management",
+    "OHSAS 18001 - Occupational Health & Safety",
+    "ISO 27001 - Information Security Management",
   ];
 
   return (
@@ -84,7 +114,7 @@ const About = () => {
             <span className="text-[#00F0FF]"> Infrastructure</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            We are a team of engineers, technicians, and innovators dedicated to 
+            We are a team of engineers, technicians, and innovators dedicated to
             building the backbone of modern connectivity.
           </p>
         </div>
@@ -99,25 +129,27 @@ const About = () => {
                 Our Story
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-6">
-                Engineering Excellence
-                <span className="text-[#00F0FF]"> Since 2010</span>
+                Excellence Driven by
+                <span className="text-[#00F0FF]"> Decades of Experience</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-6">
-                TATSU Global began with a simple mission: to build 
-                the infrastructure that powers the digital world. What started as a 
-                small telecom services company has grown into a comprehensive infrastructure 
-                solutions provider serving clients across the globe.
+                TATSU Global was established with a singular focus: to modernize
+                the infrastructure that powers our digital world. While we are a
+                dynamic new entity, our foundation is built upon nearly two
+                decades of ground-level industry expertise.
               </p>
               <p className="text-white/70 leading-relaxed mb-6">
-                Over the years, we've expanded our capabilities to include optical fiber 
-                solutions, networking, solar installations, and IT services. Today, we're 
-                proud to be a trusted partner for telecom operators, enterprises, and 
-                government organizations worldwide.
+                Our leadership team brings extensive experience in telecom,
+                optical fiber solutions, and networking, having managed complex
+                rollouts long before TATSU Global's inception. This unique blend
+                of seasoned wisdom and startup agility allows us to tackle
+                infrastructure challenges with unparalleled precision.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Our success is built on a foundation of technical expertise, unwavering 
-                commitment to quality, and a deep understanding of our clients' needs. 
-                We don't just build infrastructure – we build relationships that last.
+                Today, we offer a comprehensive suite of solutions including
+                solar installations, IT services, and technical manpower. We
+                don't just build systems – we build the future-proof backbone
+                that enables progress.
               </p>
             </div>
 
@@ -144,10 +176,10 @@ const About = () => {
                 Our Vision
               </h3>
               <p className="text-white/70 leading-relaxed">
-                To be the global leader in infrastructure solutions, recognized for 
-                our innovation, quality, and commitment to sustainable development. 
-                We envision a world where seamless connectivity powers progress and 
-                improves lives.
+                To be the global leader in infrastructure solutions, recognized
+                for our innovation, quality, and commitment to sustainable
+                development. We envision a world where seamless connectivity
+                powers progress and improves lives.
               </p>
             </div>
 
@@ -157,10 +189,10 @@ const About = () => {
                 Our Mission
               </h3>
               <p className="text-white/70 leading-relaxed">
-                To deliver world-class infrastructure solutions that enable our clients 
-                to achieve their goals. We combine technical excellence with operational 
-                efficiency to complete projects on time, within budget, and to the highest 
-                quality standards.
+                To deliver world-class infrastructure solutions that enable our
+                clients to achieve their goals. We combine technical excellence
+                with operational efficiency to complete projects on time, within
+                budget, and to the highest quality standards.
               </p>
             </div>
           </div>
@@ -197,29 +229,29 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Expertise Stats Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#00F0FF] text-sm font-semibold tracking-wider uppercase mb-4 block">
-              Our Journey
+              Our Edge
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-4">
-              Milestones That Define
-              <span className="text-[#00F0FF]"> Our Success</span>
+              The Foundation of
+              <span className="text-[#00F0FF]"> Our Expertise</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {milestones.map((milestone, index) => (
+            {expertise.map((item, index) => (
               <div
                 key={index}
-                className="p-6 bg-[#111] rounded-lg border border-[#222]"
+                className="p-6 bg-[#111] rounded-lg border border-[#222] hover:border-[#00F0FF]/20 transition-all"
               >
                 <span className="text-3xl font-bold text-[#00F0FF] font-['Space_Grotesk'] block mb-2">
-                  {milestone.year}
+                  {item.title}
                 </span>
-                <p className="text-white/80">{milestone.event}</p>
+                <p className="text-white/80">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -239,9 +271,9 @@ const About = () => {
                 <span className="text-[#00F0FF]"> Standards Certified</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Our commitment to quality and safety is validated by internationally 
-                recognized certifications. We maintain the highest standards in every 
-                aspect of our operations.
+                Our commitment to quality and safety is validated by
+                internationally recognized certifications. We maintain the
+                highest standards in every aspect of our operations.
               </p>
 
               <div className="space-y-4">
@@ -275,8 +307,8 @@ const About = () => {
             <span className="text-[#00F0FF]"> Together</span>
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
-            Ready to partner with a team that's committed to your success? 
-            Let's discuss how we can help achieve your infrastructure goals.
+            Ready to partner with a team that's committed to your success? Let's
+            discuss how we can help achieve your infrastructure goals.
           </p>
           <Link
             to="/contact"

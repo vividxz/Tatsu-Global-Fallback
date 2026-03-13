@@ -1,8 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, TowerControl, Cable, Network, Sun, Users, Code, CheckCircle } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  ChevronDown,
+  TowerControl,
+  Cable,
+  Network,
+  Sun,
+  Users,
+  Code,
+  CheckCircle,
+} from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,95 +20,106 @@ const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [counters, setCounters] = useState({ years: 0, projects: 0, experts: 0, uptime: 0 });
+  const [counters, setCounters] = useState({
+    years: 0,
+    projects: 0,
+    experts: 0,
+    uptime: 0,
+  });
 
   const services = [
     {
       icon: TowerControl,
-      title: 'Telecom Infrastructure',
-      description: 'Complete tower solutions from foundation to antenna installation.',
-      path: '/telecom',
-      image: '/telecom-tower.jpg',
+      title: "Telecom Infrastructure",
+      description:
+        "Complete tower solutions from foundation to antenna installation.",
+      path: "/telecom",
+      image: "/telecom-tower.jpg",
     },
     {
       icon: Cable,
-      title: 'OFC Solutions',
-      description: 'End-to-end optical fiber connectivity from design to deployment.',
-      path: '/ofc',
-      image: '/fiber-cables.jpg',
+      title: "OFC Solutions",
+      description:
+        "End-to-end optical fiber connectivity from design to deployment.",
+      path: "/ofc",
+      image: "/fiber-cables.jpg",
     },
     {
       icon: Network,
-      title: 'Networking',
-      description: 'BTS, microwave links, and network infrastructure solutions.',
-      path: '/networking',
-      image: '/networking.jpg',
+      title: "Networking",
+      description:
+        "BTS, microwave links, and network infrastructure solutions.",
+      path: "/networking",
+      image: "/networking.jpg",
     },
     {
       icon: Sun,
-      title: 'Solar Solutions',
-      description: 'Complete solar installation and maintenance services.',
-      path: '/solar',
-      image: '/solar-panels.jpg',
+      title: "Solar Solutions",
+      description: "Complete solar installation and maintenance services.",
+      path: "/solar",
+      image: "/solar-panels.jpg",
     },
     {
       icon: Users,
-      title: 'Technical Manpower',
-      description: 'Skilled engineering professionals deployed globally.',
-      path: '/manpower',
-      image: '/team.jpg',
+      title: "Technical Manpower",
+      description: "Skilled engineering professionals deployed globally.",
+      path: "/manpower",
+      image: "/team.jpg",
     },
     {
       icon: Code,
-      title: 'IT Solutions',
-      description: 'AI-driven software, web, and app development.',
-      path: '/it-solutions',
-      image: '/it-solutions.jpg',
+      title: "IT Solutions",
+      description: "AI-driven software, web, and app development.",
+      path: "/it-solutions",
+      image: "/it-solutions.jpg",
     },
   ];
 
   const testimonials = [
     {
-      quote: "TATSU Global's precision in fiber deployment transformed our network infrastructure. Their team's expertise is unmatched.",
-      author: 'Rajesh Kumar',
-      position: 'CTO, Telecom Operator',
+      quote:
+        "TATSU Global's precision in fiber deployment transformed our network infrastructure. Their team's expertise is unmatched.",
+      author: "Rajesh Kumar",
+      position: "CTO, Telecom Operator",
     },
     {
-      quote: "From planning to execution, TATSU Global delivered our solar project on time and within budget. Highly recommended.",
-      author: 'Priya Sharma',
-      position: 'Operations Director, Energy Corp',
+      quote:
+        "From planning to execution, TATSU Global delivered our solar project on time and within budget. Highly recommended.",
+      author: "Priya Sharma",
+      position: "Operations Director, Energy Corp",
     },
     {
-      quote: "Their technical manpower support has been instrumental in scaling our operations across multiple regions.",
-      author: 'Amit Patel',
-      position: 'VP Engineering, Tech Solutions',
+      quote:
+        "Their technical manpower support has been instrumental in scaling our operations across multiple regions.",
+      author: "Amit Patel",
+      position: "VP Engineering, Tech Solutions",
     },
   ];
 
   useEffect(() => {
     // Hero animation
     const ctx = gsap.context(() => {
-      gsap.from('.hero-title', {
+      gsap.from(".hero-title", {
         y: 100,
         opacity: 0,
         duration: 1,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
 
-      gsap.from('.hero-subtitle', {
+      gsap.from(".hero-subtitle", {
         y: 50,
         opacity: 0,
         duration: 1,
         delay: 0.3,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
 
-      gsap.from('.hero-cta', {
+      gsap.from(".hero-cta", {
         y: 30,
         opacity: 0,
         duration: 1,
         delay: 0.6,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
     }, heroRef);
 
@@ -119,14 +140,14 @@ const Home = () => {
 
     // Force play on initial load, scroll, and tab visibility changes
     ensureVideoPlays();
-    window.addEventListener('scroll', ensureVideoPlays, { passive: true });
-    window.addEventListener('touchstart', ensureVideoPlays, { passive: true });
-    document.addEventListener('visibilitychange', ensureVideoPlays);
+    window.addEventListener("scroll", ensureVideoPlays, { passive: true });
+    window.addEventListener("touchstart", ensureVideoPlays, { passive: true });
+    document.addEventListener("visibilitychange", ensureVideoPlays);
 
     return () => {
-      window.removeEventListener('scroll', ensureVideoPlays);
-      window.removeEventListener('touchstart', ensureVideoPlays);
-      document.removeEventListener('visibilitychange', ensureVideoPlays);
+      window.removeEventListener("scroll", ensureVideoPlays);
+      window.removeEventListener("touchstart", ensureVideoPlays);
+      document.removeEventListener("visibilitychange", ensureVideoPlays);
     };
   }, []);
 
@@ -148,14 +169,19 @@ const Home = () => {
 
               setCounters({
                 years: Math.floor(15 * easeProgress),
-                projects: Math.floor(500 * easeProgress),
-                experts: Math.floor(250 * easeProgress),
+                projects: Math.floor(100 * easeProgress),
+                experts: Math.floor(50 * easeProgress),
                 uptime: parseFloat((99.9 * easeProgress).toFixed(1)),
               });
 
               if (step >= steps) {
                 clearInterval(timer);
-                setCounters({ years: 15, projects: 500, experts: 250, uptime: 99.9 });
+                setCounters({
+                  years: 15,
+                  projects: 100,
+                  experts: 50,
+                  uptime: 99.9,
+                });
               }
             }, interval);
 
@@ -163,7 +189,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (statsRef.current) {
@@ -192,7 +218,7 @@ const Home = () => {
             controls={false}
             disablePictureInPicture
             className="w-full h-full object-cover pointer-events-none"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
 
@@ -209,8 +235,8 @@ const Home = () => {
             Infrastructure Solutions
           </p>
           <p className="hero-subtitle text-xs sm:text-sm text-white/50 max-w-2xl mx-auto mb-10">
-            Engineering the Future of Connectivity. From fiber optics to 5G towers, 
-            we architect the backbone of modern communication.
+            Engineering the Future of Connectivity. From fiber optics to 5G
+            towers, we architect the backbone of modern communication.
           </p>
 
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -250,15 +276,16 @@ const Home = () => {
                 <span className="text-[#00F0FF]"> Infrastructure</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-6">
-                We are a team of engineers and architects dedicated to building the 
-                backbone of modern communication. From fiber optics to 5G towers, 
-                from solar installations to IT solutions, we deliver excellence 
-                across the entire infrastructure spectrum.
+                We are a team of engineers and architects dedicated to building
+                the backbone of modern communication. From fiber optics to 5G
+                towers, from solar installations to IT solutions, we deliver
+                excellence across the entire infrastructure spectrum.
               </p>
               <p className="text-white/60 leading-relaxed mb-8">
-                With over 15 years of experience and 500+ successful projects, 
-                we have established ourselves as a trusted partner for telecom 
-                operators, enterprises, and government organizations worldwide.
+                With over 15 years of industry experience and 100+ successful
+                projects, we have established ourselves as a trusted partner for
+                telecom operators, enterprises, and government organizations
+                worldwide.
               </p>
               <Link
                 to="/about"
@@ -280,7 +307,9 @@ const Home = () => {
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-[#00F0FF]/10 rounded-lg border border-[#00F0FF]/30 flex items-center justify-center">
                 <div className="text-center">
                   <span className="text-4xl font-bold text-[#00F0FF]">15+</span>
-                  <p className="text-white/60 text-sm mt-1">Years of Excellence</p>
+                  <p className="text-white/60 text-sm mt-1">
+                    Years of Excellence
+                  </p>
                 </div>
               </div>
             </div>
@@ -300,7 +329,7 @@ const Home = () => {
               <span className="text-[#00F0FF]"> Solutions</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              From planning to execution, we deliver end-to-end infrastructure 
+              From planning to execution, we deliver end-to-end infrastructure
               solutions with precision, safety, and innovation.
             </p>
           </div>
@@ -326,7 +355,9 @@ const Home = () => {
                       {service.title}
                     </h3>
                   </div>
-                  <p className="text-white/60 text-sm mb-4">{service.description}</p>
+                  <p className="text-white/60 text-sm mb-4">
+                    {service.description}
+                  </p>
                   <span className="inline-flex items-center text-[#00F0FF] text-sm font-medium">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -383,18 +414,18 @@ const Home = () => {
                 <span className="text-[#00F0FF]"> Apart</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Our edge lies in combining nationwide reach with flawless execution 
-                and zero-tolerance safety culture. We deliver infrastructure solutions 
-                that stand the test of time.
+                Our edge lies in combining nationwide reach with flawless
+                execution and zero-tolerance safety culture. We deliver
+                infrastructure solutions that stand the test of time.
               </p>
 
               <div className="space-y-4">
                 {[
-                  'Scale & Speed - High-volume rollouts with consistency',
-                  'Nationwide Presence - Execution across all regions',
-                  'Safety & Quality - Strict OHS and industry standards',
-                  'OEM-Agnostic - Seamless multi-platform integration',
-                  'End-to-End Management - From feasibility to operations',
+                  "Scale & Speed - High-volume rollouts with consistency",
+                  "Nationwide Presence - Execution across all regions",
+                  "Safety & Quality - Strict OHS and industry standards",
+                  "OEM-Agnostic - Seamless multi-platform integration",
+                  "End-to-End Management - From feasibility to operations",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-[#00F0FF] mt-0.5 flex-shrink-0" />
@@ -414,14 +445,18 @@ const Home = () => {
                   />
                 </div>
                 <div className="p-6 bg-[#111] rounded-lg border border-[#222]">
-                  <span className="text-3xl font-bold text-[#00F0FF]">100%</span>
+                  <span className="text-3xl font-bold text-[#00F0FF]">
+                    100%
+                  </span>
                   <p className="text-white/60 text-sm mt-1">OHS Compliant</p>
                 </div>
               </div>
               <div className="space-y-4 mt-8">
                 <div className="p-6 bg-[#111] rounded-lg border border-[#222]">
                   <span className="text-3xl font-bold text-[#00F0FF]">ISO</span>
-                  <p className="text-white/60 text-sm mt-1">9001:2015 Certified</p>
+                  <p className="text-white/60 text-sm mt-1">
+                    9001:2015 Certified
+                  </p>
                 </div>
                 <div className="aspect-square rounded-lg overflow-hidden border border-[#222]">
                   <img
@@ -460,8 +495,12 @@ const Home = () => {
                   {testimonial.quote}
                 </p>
                 <div>
-                  <p className="text-white font-semibold">{testimonial.author}</p>
-                  <p className="text-white/60 text-sm">{testimonial.position}</p>
+                  <p className="text-white font-semibold">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-white/60 text-sm">
+                    {testimonial.position}
+                  </p>
                 </div>
               </div>
             ))}
@@ -477,8 +516,8 @@ const Home = () => {
             <span className="text-[#00F0FF]"> Future?</span>
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
-            Let's discuss how TATSU Global can transform 
-            your infrastructure projects with precision and innovation.
+            Let's discuss how TATSU Global can transform your infrastructure
+            projects with precision and innovation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

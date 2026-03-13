@@ -1,8 +1,17 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Users, Globe, Award, Shield, Clock, Briefcase } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  CheckCircle,
+  Users,
+  Globe,
+  Award,
+  Shield,
+  Clock,
+  Briefcase,
+} from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,13 +20,13 @@ const Manpower = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+
     const ctx = gsap.context(() => {
-      gsap.from('.service-hero-content', {
+      gsap.from(".service-hero-content", {
         y: 50,
         opacity: 0,
         duration: 1,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
     }, heroRef);
 
@@ -27,50 +36,54 @@ const Manpower = () => {
   const expertise = [
     {
       icon: Briefcase,
-      title: 'Telecom Engineers',
-      description: 'Certified engineers for tower installation, BTS, and microwave systems.',
+      title: "Telecom Engineers",
+      description:
+        "Certified engineers for tower installation, BTS, and microwave systems.",
     },
     {
       icon: Shield,
-      title: 'OFC Technicians',
-      description: 'Skilled fiber optic cable technicians for splicing and installation.',
+      title: "OFC Technicians",
+      description:
+        "Skilled fiber optic cable technicians for splicing and installation.",
     },
     {
       icon: Users,
-      title: 'Network Specialists',
-      description: 'Experts in routing, switching, and network configuration.',
+      title: "Network Specialists",
+      description: "Experts in routing, switching, and network configuration.",
     },
     {
       icon: Award,
-      title: 'Solar Technicians',
-      description: 'Certified professionals for solar panel installation and maintenance.',
+      title: "Solar Technicians",
+      description:
+        "Certified professionals for solar panel installation and maintenance.",
     },
     {
       icon: Globe,
-      title: 'Project Managers',
-      description: 'Experienced managers to oversee large-scale infrastructure projects.',
+      title: "Project Managers",
+      description:
+        "Experienced managers to oversee large-scale infrastructure projects.",
     },
     {
       icon: Clock,
-      title: '24/7 Support Staff',
-      description: 'Round-the-clock technical support and maintenance teams.',
+      title: "24/7 Support Staff",
+      description: "Round-the-clock technical support and maintenance teams.",
     },
   ];
 
   const benefits = [
-    'Access to highly skilled and certified professionals',
-    'Flexible deployment across multiple regions',
-    'Rapid team scaling for project demands',
-    'Comprehensive training and safety protocols',
-    'Background verified and security cleared personnel',
-    'Competitive rates without compromising quality',
+    "Access to highly skilled and certified professionals",
+    "Flexible deployment across multiple regions",
+    "Rapid team scaling for project demands",
+    "Comprehensive training and safety protocols",
+    "Background verified and security cleared personnel",
+    "Competitive rates without compromising quality",
   ];
 
   const stats = [
-    { value: '500+', label: 'Skilled Professionals' },
-    { value: '50+', label: 'Countries Served' },
-    { value: '98%', label: 'Client Satisfaction' },
-    { value: '24/7', label: 'Support Available' },
+    { value: "50+", label: "Skilled Professionals" },
+    { value: "Global", label: "Reach" },
+    { value: "98%", label: "Client Satisfaction" },
+    { value: "24/7", label: "Support Available" },
   ];
 
   return (
@@ -102,7 +115,7 @@ const Manpower = () => {
               <span className="text-[#00F0FF]"> Manpower</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-8">
-              Skilled engineering professionals deployed globally. We provide 
+              Skilled engineering professionals deployed globally. We provide
               the expertise you need, when and where you need it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -152,8 +165,8 @@ const Manpower = () => {
               <span className="text-[#00F0FF]"> Disciplines</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              Our pool of technical experts covers every aspect of infrastructure 
-              deployment and maintenance.
+              Our pool of technical experts covers every aspect of
+              infrastructure deployment and maintenance.
             </p>
           </div>
 
@@ -187,20 +200,20 @@ const Manpower = () => {
                 <span className="text-[#00F0FF]"> Worldwide</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Our technical manpower services extend across the globe. Whether you 
-                need a single expert or an entire project team, we can deploy skilled 
-                professionals to any location, ensuring your infrastructure projects 
-                stay on track.
+                Our technical manpower services extend across the globe. Whether
+                you need a single expert or an entire project team, we can
+                deploy skilled professionals to any location, ensuring your
+                infrastructure projects stay on track.
               </p>
 
               <div className="space-y-4">
                 {[
-                  'Rapid deployment to project sites',
-                  'Multi-lingual technical teams',
-                  'Cultural awareness and local compliance',
-                  'Travel and logistics management',
-                  'Visa and work permit assistance',
-                  'Local partnership networks',
+                  "Rapid deployment to project sites",
+                  "Multi-lingual technical teams",
+                  "Cultural awareness and local compliance",
+                  "Travel and logistics management",
+                  "Visa and work permit assistance",
+                  "Local partnership networks",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-[#00F0FF] mt-0.5 flex-shrink-0" />
@@ -214,8 +227,12 @@ const Manpower = () => {
               <div className="aspect-video rounded-lg overflow-hidden border border-[#222] bg-[#111] flex items-center justify-center">
                 <div className="text-center p-8">
                   <Globe className="w-24 h-24 text-[#00F0FF] mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-white mb-2">Global Presence</h3>
-                  <p className="text-white/60">Serving clients across 50+ countries</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    Global Presence
+                  </h3>
+                  <p className="text-white/60">
+                    Serving clients with international standards
+                  </p>
                 </div>
               </div>
             </div>
@@ -246,9 +263,9 @@ const Manpower = () => {
                 <span className="text-[#00F0FF]"> Partner</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                We understand that your projects depend on having the right people 
-                with the right skills at the right time. That's why we've built a 
-                reputation for reliability and excellence.
+                We understand that your projects depend on having the right
+                people with the right skills at the right time. That's why we've
+                built a reputation for reliability and excellence.
               </p>
 
               <div className="space-y-4">
@@ -272,7 +289,7 @@ const Manpower = () => {
             <span className="text-[#00F0FF]"> Professionals?</span>
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
-            Contact us to discuss your manpower requirements and get access to 
+            Contact us to discuss your manpower requirements and get access to
             our pool of certified technical experts.
           </p>
           <Link
