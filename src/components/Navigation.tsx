@@ -1,21 +1,29 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
-interface NavigationProps {
-  scrollY: number;
-}
-
-const Navigation = ({ scrollY }: NavigationProps) => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
+  const [scrollY, setScrollY] = useState(0);
   const isScrolled = scrollY > 50;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
     setServicesOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   const services = [
     { name: 'Telecom Infrastructure', path: '/telecom' },
@@ -37,7 +45,7 @@ const Navigation = ({ scrollY }: NavigationProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold font-['Space_Grotesk'] tracking-tight">
               <span className="text-white">TATSU</span>
               <span className="text-[#00F0FF]"> GLOBAL</span>
@@ -47,9 +55,9 @@ const Navigation = ({ scrollY }: NavigationProps) => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <Link
-              to="/"
+              href="/"
               className={`text-sm font-medium transition-colors hover:text-[#00F0FF] ${
-                location.pathname === '/' ? 'text-[#00F0FF]' : 'text-white/80'
+                pathname === '/' ? 'text-[#00F0FF]' : 'text-white/80'
               }`}
             >
               Home
@@ -78,7 +86,7 @@ const Navigation = ({ scrollY }: NavigationProps) => {
                   {services.map((service) => (
                     <Link
                       key={service.path}
-                      to={service.path}
+                      href={service.path}
                       className="block px-4 py-3 text-sm text-white/80 hover:text-[#00F0FF] hover:bg-[#111] transition-colors border-b border-[#222] last:border-0"
                     >
                       {service.name}
@@ -89,32 +97,32 @@ const Navigation = ({ scrollY }: NavigationProps) => {
             </div>
 
             <Link
-              to="/about"
+              href="/about"
               className={`text-sm font-medium transition-colors hover:text-[#00F0FF] ${
-                location.pathname === '/about' ? 'text-[#00F0FF]' : 'text-white/80'
+                pathname === '/about' ? 'text-[#00F0FF]' : 'text-white/80'
               }`}
             >
               About
             </Link>
 
             <Link
-              to="/contact"
+              href="/contact"
               className={`text-sm font-medium transition-colors hover:text-[#00F0FF] ${
-                location.pathname === '/contact' ? 'text-[#00F0FF]' : 'text-white/80'
+                pathname === '/contact' ? 'text-[#00F0FF]' : 'text-white/80'
               }`}
             >
               Contact
             </Link>
 
             <Link
-              to="/contact"
+              href="/contact"
               className="px-5 py-2.5 bg-[#00F0FF] text-black text-sm font-semibold rounded hover:bg-[#00D0DD] transition-colors"
             >
               Get Quote
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Buthrefn */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-white"
@@ -128,7 +136,7 @@ const Navigation = ({ scrollY }: NavigationProps) => {
           <div className="lg:hidden bg-[#0A0A0A] border-t border-[#222]">
             <div className="px-4 py-4 space-y-2">
               <Link
-                to="/"
+                href="/"
                 className="block py-2 text-white/80 hover:text-[#00F0FF]"
               >
                 Home
@@ -152,7 +160,7 @@ const Navigation = ({ scrollY }: NavigationProps) => {
                     {services.map((service) => (
                       <Link
                         key={service.path}
-                        to={service.path}
+                        href={service.path}
                         className="block py-2 text-sm text-white/60 hover:text-[#00F0FF]"
                       >
                         {service.name}
@@ -163,21 +171,21 @@ const Navigation = ({ scrollY }: NavigationProps) => {
               </div>
 
               <Link
-                to="/about"
+                href="/about"
                 className="block py-2 text-white/80 hover:text-[#00F0FF]"
               >
                 About
               </Link>
 
               <Link
-                to="/contact"
+                href="/contact"
                 className="block py-2 text-white/80 hover:text-[#00F0FF]"
               >
                 Contact
               </Link>
 
               <Link
-                to="/contact"
+                href="/contact"
                 className="block mt-4 px-5 py-2.5 bg-[#00F0FF] text-black text-center font-semibold rounded"
               >
                 Get Quote

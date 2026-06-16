@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 import { MapPin, Phone, Mail, Linkedin, Twitter, Facebook } from 'lucide-react';
 
 const Footer = () => {
@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-6">
               <span className="text-3xl font-bold font-['Space_Grotesk']">
                 <span className="text-white">TATSU</span>
                 <span className="text-[#00F0FF]"> GLOBAL</span>
@@ -66,7 +66,7 @@ const Footer = () => {
               {services.map((service) => (
                 <li key={service.path}>
                   <Link
-                    to={service.path}
+                    href={service.path}
                     className="text-white/60 hover:text-[#00F0FF] text-sm transition-colors"
                   >
                     {service.name}
@@ -85,7 +85,7 @@ const Footer = () => {
               {company.map((item) => (
                 <li key={item.name}>
                   <Link
-                    to={item.path}
+                    href={item.path}
                     className="text-white/60 hover:text-[#00F0FF] text-sm transition-colors"
                   >
                     {item.name}

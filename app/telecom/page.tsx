@@ -1,12 +1,13 @@
+"use client";
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Code, Cpu, Smartphone, Database, Cloud, Shield } from 'lucide-react';
+import Link from "next/link";
+import { ArrowRight, CheckCircle, TowerControl, Zap, Settings, Shield } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ITSolutions = () => {
+const Telecom = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,73 +27,72 @@ const ITSolutions = () => {
 
   const services = [
     {
-      icon: Code,
-      title: 'Web Development',
-      description: 'Custom web applications and enterprise portals built with modern technologies.',
-    },
-    {
-      icon: Smartphone,
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications for iOS and Android.',
-    },
-    {
-      icon: Cpu,
-      title: 'AI Solutions',
-      description: 'Machine learning and AI-driven solutions for business automation.',
-    },
-    {
-      icon: Database,
-      title: 'Enterprise Software',
-      description: 'Custom software solutions tailored to your business processes.',
-    },
-    {
-      icon: Cloud,
-      title: 'Cloud Services',
-      description: 'Cloud migration, deployment, and management services.',
+      icon: Settings,
+      title: 'Layout Design',
+      description: 'Comprehensive site surveys and tower layout design optimized for coverage and capacity requirements.',
     },
     {
       icon: Shield,
-      title: 'Cybersecurity',
-      description: 'Security audits, implementation, and ongoing monitoring.',
+      title: 'Tower Foundation',
+      description: 'Engineered foundation solutions including soil testing, structural design, and civil construction.',
     },
-  ];
-
-  const technologies = [
-    'React, Angular, Vue.js',
-    'Node.js, Python, Java',
-    'React Native, Flutter',
-    'AWS, Azure, GCP',
-    'TensorFlow, PyTorch',
-    'PostgreSQL, MongoDB',
-    'Docker, Kubernetes',
-    'CI/CD Pipelines',
+    {
+      icon: TowerControl,
+      title: 'Tower Erection',
+      description: 'Professional installation of GSM, CDMA, and microwave towers with precision and safety.',
+    },
+    {
+      icon: Zap,
+      title: 'Electrification',
+      description: 'Complete power solutions including electrical installation, backup systems, and grounding.',
+    },
+    {
+      icon: Settings,
+      title: 'Pole Mount Antenna',
+      description: 'Installation of pole-mounted antennas for urban and suburban coverage solutions.',
+    },
+    {
+      icon: TowerControl,
+      title: 'Microwave Installation',
+      description: 'Point-to-point and point-to-multipoint microwave link installation and alignment.',
+    },
+    {
+      icon: Settings,
+      title: 'BTS Installation',
+      description: 'Base Transceiver Station setup, configuration, and commissioning.',
+    },
+    {
+      icon: Shield,
+      title: 'OFC Connectivity',
+      description: 'Fiber optic cable termination and connectivity to telecom infrastructure.',
+    },
   ];
 
   const process = [
     {
       step: '01',
-      title: 'Discovery',
-      description: 'Understanding your business needs, goals, and technical requirements.',
+      title: 'Site Survey',
+      description: 'Comprehensive analysis of site conditions, coverage requirements, and regulatory compliance.',
     },
     {
       step: '02',
-      title: 'Design',
-      description: 'Creating user-centered designs and technical architecture.',
+      title: 'Design & Planning',
+      description: 'Detailed engineering design including structural calculations and network optimization.',
     },
     {
       step: '03',
-      title: 'Development',
-      description: 'Agile development with regular updates and feedback loops.',
+      title: 'Civil Works',
+      description: 'Foundation construction, tower erection, and site preparation activities.',
     },
     {
       step: '04',
-      title: 'Testing',
-      description: 'Comprehensive testing for quality, security, and performance.',
+      title: 'Equipment Installation',
+      description: 'Antenna, BTS, microwave, and power system installation with precision alignment.',
     },
     {
       step: '05',
-      title: 'Deployment',
-      description: 'Smooth launch with monitoring and ongoing support.',
+      title: 'Testing & Commissioning',
+      description: 'Comprehensive testing, optimization, and handover with documentation.',
     },
   ];
 
@@ -106,8 +106,8 @@ const ITSolutions = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/it-solutions.jpg"
-            alt="IT Solutions"
+            src="/telecom-tower.jpg"
+            alt="Telecom Tower"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent" />
@@ -121,26 +121,26 @@ const ITSolutions = () => {
               Our Services
             </span>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-['Space_Grotesk'] mb-6">
-              IT
-              <span className="text-[#00F0FF]"> Solutions</span>
+              Telecom
+              <span className="text-[#00F0FF]"> Infrastructure</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-8">
-              Technology solutions that drive business growth. From web and mobile 
-              apps to AI-driven systems, we build software that makes a difference.
+              End-to-end telecom infrastructure solutions from site survey to commissioning. 
+              We build the towers that connect the world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/contact"
+                href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
               >
-                <span>Start a Project</span>
+                <span>Get a Quote</span>
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
-                to="/about"
+                href="/ofc"
                 className="inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors"
               >
-                <span>Learn About Us</span>
+                <span>Explore OFC Solutions</span>
               </Link>
             </div>
           </div>
@@ -155,16 +155,16 @@ const ITSolutions = () => {
               What We Offer
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-4">
-              Technology Solutions for
-              <span className="text-[#00F0FF]"> Modern Business</span>
+              Comprehensive Telecom
+              <span className="text-[#00F0FF]"> Services</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              We deliver cutting-edge software solutions that help businesses 
-              innovate, automate, and scale.
+              From initial design to final commissioning, we handle every aspect 
+              of telecom infrastructure deployment.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -181,38 +181,45 @@ const ITSolutions = () => {
         </div>
       </section>
 
-      {/* Technologies Section */}
+      {/* Process Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-[#00F0FF] text-sm font-semibold tracking-wider uppercase mb-4 block">
-                Our Tech Stack
+                Our Process
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-6">
-                Built With Modern
-                <span className="text-[#00F0FF]"> Technologies</span>
+                How We Deliver
+                <span className="text-[#00F0FF]"> Excellence</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                We use the latest technologies and best practices to build 
-                scalable, secure, and high-performance software solutions.
+                Our proven five-step process ensures every project is delivered 
+                on time, within budget, and to the highest quality standards.
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
-                {technologies.map((tech, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-[#00F0FF] flex-shrink-0" />
-                    <span className="text-white/80">{tech}</span>
+              <div className="space-y-6">
+                {process.map((step, index) => (
+                  <div key={index} className="flex space-x-4">
+                    <span className="text-3xl font-bold text-[#00F0FF] font-['Space_Grotesk']">
+                      {step.step}
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        {step.title}
+                      </h3>
+                      <p className="text-white/60 text-sm">{step.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="relative">
-              <div className="aspect-video rounded-lg overflow-hidden border border-[#222]">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border border-[#222]">
                 <img
-                  src="/it-solutions.jpg"
-                  alt="Technology Stack"
+                  src="/tower-construction.jpg"
+                  alt="Tower Construction"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -221,74 +228,41 @@ const ITSolutions = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Capabilities Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#00F0FF] text-sm font-semibold tracking-wider uppercase mb-4 block">
-              Our Process
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-4">
-              How We Build
-              <span className="text-[#00F0FF]"> Software</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-5 gap-6">
-            {process.map((step, index) => (
-              <div
-                key={index}
-                className="p-6 bg-[#0A0A0A] rounded-lg border border-[#222] text-center"
-              >
-                <span className="text-4xl font-bold text-[#00F0FF] font-['Space_Grotesk'] block mb-4">
-                  {step.step}
-                </span>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-white/60 text-sm">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* AI Solutions Highlight */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <div className="aspect-video rounded-lg overflow-hidden border border-[#222] bg-[#111] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Cpu className="w-24 h-24 text-[#00F0FF] mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-white mb-2">AI-Powered</h3>
-                  <p className="text-white/60">Intelligent solutions for modern challenges</p>
-                </div>
+              <div className="aspect-video rounded-lg overflow-hidden border border-[#222]">
+                <img
+                  src="/microwave.jpg"
+                  alt="Microwave Installation"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
             <div className="order-1 lg:order-2">
               <span className="text-[#00F0FF] text-sm font-semibold tracking-wider uppercase mb-4 block">
-                AI Solutions
+                Our Capabilities
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-6">
-                Harness the Power of
-                <span className="text-[#00F0FF]"> Artificial Intelligence</span>
+                Why Partner With
+                <span className="text-[#00F0FF]"> TATSU Global</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Transform your business with AI-driven solutions. From predictive 
-                analytics to intelligent automation, we help you leverage the power 
-                of machine learning and artificial intelligence.
+                We bring unparalleled expertise and resources to every telecom 
+                infrastructure project, ensuring success at every stage.
               </p>
 
               <div className="space-y-4">
                 {[
-                  'Machine learning model development',
-                  'Natural language processing solutions',
-                  'Computer vision applications',
-                  'Predictive analytics and forecasting',
-                  'Intelligent process automation',
-                  'AI-powered chatbots and assistants',
+                  'Experienced team of certified telecom engineers',
+                  'OEM-agnostic approach with multi-vendor expertise',
+                  'Strict adherence to safety and quality standards',
+                  'Pan-India deployment capability',
+                  '24/7 support and maintenance services',
+                  'Complete documentation and handover process',
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-[#00F0FF] mt-0.5 flex-shrink-0" />
@@ -302,21 +276,21 @@ const ITSolutions = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-6">
-            Ready to Build Something
-            <span className="text-[#00F0FF]"> Amazing?</span>
+            Start Your Telecom
+            <span className="text-[#00F0FF]"> Project</span>
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
-            Let's discuss your project requirements and create a technology solution 
-            that drives your business forward.
+            Contact us today to discuss your telecom infrastructure requirements 
+            and get a customized solution proposal.
           </p>
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-flex items-center px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
           >
-            <span>Start Your Project</span>
+            <span>Contact Our Team</span>
             <ArrowRight className="w-5 h-5 ml-2" />
           </Link>
         </div>
@@ -325,4 +299,4 @@ const ITSolutions = () => {
   );
 };
 
-export default ITSolutions;
+export default Telecom;

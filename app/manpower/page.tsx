@@ -1,5 +1,6 @@
+"use client";
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle,
@@ -120,14 +121,14 @@ const Manpower = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/contact"
+                href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
               >
                 <span>Request Resources</span>
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
-                to="/it-solutions"
+                href="/it-solutions"
                 className="inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors"
               >
                 <span>Explore IT Solutions</span>
@@ -293,7 +294,7 @@ const Manpower = () => {
             our pool of certified technical experts.
           </p>
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-flex items-center px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
           >
             <span>Request Resources</span>

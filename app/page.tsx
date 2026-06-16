@@ -1,5 +1,6 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   ChevronDown,
@@ -241,14 +242,14 @@ const Home = () => {
 
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              to="/contact"
+              href="/contact"
               className="group px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-all flex items-center space-x-2"
             >
               <span>Get Started</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              to="/about"
+              href="/about"
               className="px-8 py-4 border border-white/30 text-white font-semibold rounded hover:border-[#00F0FF] hover:text-[#00F0FF] transition-all"
             >
               Learn More
@@ -288,7 +289,7 @@ const Home = () => {
                 worldwide.
               </p>
               <Link
-                to="/about"
+                href="/about"
                 className="inline-flex items-center text-[#00F0FF] font-semibold hover:underline"
               >
                 <span>Explore Our Journey</span>
@@ -338,7 +339,7 @@ const Home = () => {
             {services.map((service, index) => (
               <Link
                 key={index}
-                to={service.path}
+                href={service.path}
                 className="group relative bg-[#111] rounded-lg overflow-hidden border border-[#222] hover:border-[#00F0FF]/50 transition-all duration-300"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -521,13 +522,13 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              to="/contact"
+              href="/contact"
               className="px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
             >
               Start Your Project
             </Link>
             <Link
-              to="/contact"
+              href="/contact"
               className="px-8 py-4 border border-white/30 text-white font-semibold rounded hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors"
             >
               Schedule a Call

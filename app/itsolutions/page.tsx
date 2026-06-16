@@ -1,12 +1,13 @@
+"use client";
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Cable, Layers, GitMerge, Box, Home, Settings } from 'lucide-react';
+import Link from "next/link";
+import { ArrowRight, CheckCircle, Code, Cpu, Smartphone, Database, Cloud, Shield } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const OFC = () => {
+const ITSolutions = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,53 +27,73 @@ const OFC = () => {
 
   const services = [
     {
-      icon: Layers,
-      title: 'Ducting',
-      description: 'Underground and surface duct installation for fiber cable protection and routing.',
+      icon: Code,
+      title: 'Web Development',
+      description: 'Custom web applications and enterprise portals built with modern technologies.',
     },
     {
-      icon: Cable,
-      title: 'Fiber Blowing',
-      description: 'High-pressure air-assisted fiber cable installation through ducts.',
+      icon: Smartphone,
+      title: 'Mobile Apps',
+      description: 'Native and cross-platform mobile applications for iOS and Android.',
     },
     {
-      icon: GitMerge,
-      title: 'Splicing',
-      description: 'Precision fiber splicing with fusion splicers and OTDR testing.',
+      icon: Cpu,
+      title: 'AI Solutions',
+      description: 'Machine learning and AI-driven solutions for business automation.',
     },
     {
-      icon: Box,
-      title: 'Chamber Installation',
-      description: 'Underground chamber construction at connection points for access.',
+      icon: Database,
+      title: 'Enterprise Software',
+      description: 'Custom software solutions tailored to your business processes.',
     },
     {
-      icon: Settings,
-      title: 'Big Connections',
-      description: 'Large-scale fiber distribution and backbone network connections.',
+      icon: Cloud,
+      title: 'Cloud Services',
+      description: 'Cloud migration, deployment, and management services.',
     },
     {
-      icon: Home,
-      title: 'FTTH Solutions',
-      description: 'Complete Fiber to the Home deployment from design to installation.',
+      icon: Shield,
+      title: 'Cybersecurity',
+      description: 'Security audits, implementation, and ongoing monitoring.',
     },
   ];
 
-  const applications = [
+  const technologies = [
+    'React, Angular, Vue.js',
+    'Node.js, Python, Java',
+    'React Native, Flutter',
+    'AWS, Azure, GCP',
+    'TensorFlow, PyTorch',
+    'PostgreSQL, MongoDB',
+    'Docker, Kubernetes',
+    'CI/CD Pipelines',
+  ];
+
+  const process = [
     {
-      title: 'Telecom Networks',
-      description: 'Backbone and last-mile connectivity for telecom operators.',
+      step: '01',
+      title: 'Discovery',
+      description: 'Understanding your business needs, goals, and technical requirements.',
     },
     {
-      title: 'Enterprise Solutions',
-      description: 'Campus-wide fiber networks for corporate and industrial facilities.',
+      step: '02',
+      title: 'Design',
+      description: 'Creating user-centered designs and technical architecture.',
     },
     {
-      title: 'Smart Cities',
-      description: 'Integrated fiber infrastructure for urban development projects.',
+      step: '03',
+      title: 'Development',
+      description: 'Agile development with regular updates and feedback loops.',
     },
     {
-      title: 'Data Centers',
-      description: 'High-density fiber connectivity for data center interconnections.',
+      step: '04',
+      title: 'Testing',
+      description: 'Comprehensive testing for quality, security, and performance.',
+    },
+    {
+      step: '05',
+      title: 'Deployment',
+      description: 'Smooth launch with monitoring and ongoing support.',
     },
   ];
 
@@ -86,8 +107,8 @@ const OFC = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/fiber-cables.jpg"
-            alt="Fiber Optic Cables"
+            src="/it-solutions.jpg"
+            alt="IT Solutions"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent" />
@@ -101,26 +122,26 @@ const OFC = () => {
               Our Services
             </span>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-['Space_Grotesk'] mb-6">
-              OFC
+              IT
               <span className="text-[#00F0FF]"> Solutions</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-8">
-              End-to-end optical fiber connectivity solutions. From ducting to FTTH, 
-              we deliver the fiber infrastructure that powers the digital world.
+              Technology solutions that drive business growth. From web and mobile 
+              apps to AI-driven systems, we build software that makes a difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/contact"
+                href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
               >
-                <span>Get a Quote</span>
+                <span>Start a Project</span>
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
-                to="/networking"
+                href="/about"
                 className="inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-semibold rounded hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors"
               >
-                <span>Explore Networking</span>
+                <span>Learn About Us</span>
               </Link>
             </div>
           </div>
@@ -135,12 +156,12 @@ const OFC = () => {
               What We Offer
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-4">
-              Complete Fiber
-              <span className="text-[#00F0FF]"> Solutions</span>
+              Technology Solutions for
+              <span className="text-[#00F0FF]"> Modern Business</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              From underground ducting to home connections, we handle every aspect 
-              of optical fiber cable deployment.
+              We deliver cutting-edge software solutions that help businesses 
+              innovate, automate, and scale.
             </p>
           </div>
 
@@ -161,36 +182,28 @@ const OFC = () => {
         </div>
       </section>
 
-      {/* FTTH Section */}
+      {/* Technologies Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-[#00F0FF] text-sm font-semibold tracking-wider uppercase mb-4 block">
-                FTTH Solutions
+                Our Tech Stack
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-6">
-                Fiber to the
-                <span className="text-[#00F0FF]"> Home</span>
+                Built With Modern
+                <span className="text-[#00F0FF]"> Technologies</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Complete FTTH deployment from design to installation. We deliver 
-                high-speed fiber connectivity directly to residential and commercial 
-                premises, enabling next-generation internet, TV, and phone services.
+                We use the latest technologies and best practices to build 
+                scalable, secure, and high-performance software solutions.
               </p>
 
-              <div className="space-y-4">
-                {[
-                  'Route survey and network design',
-                  'Underground and aerial cable deployment',
-                  'Splitter installation and configuration',
-                  'Customer premise equipment setup',
-                  'Testing and commissioning',
-                  'Documentation and as-built drawings',
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-[#00F0FF] mt-0.5 flex-shrink-0" />
-                    <span className="text-white/80">{item}</span>
+              <div className="grid grid-cols-2 gap-4">
+                {technologies.map((tech, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-[#00F0FF] flex-shrink-0" />
+                    <span className="text-white/80">{tech}</span>
                   </div>
                 ))}
               </div>
@@ -199,8 +212,8 @@ const OFC = () => {
             <div className="relative">
               <div className="aspect-video rounded-lg overflow-hidden border border-[#222]">
                 <img
-                  src="/ofc-work.jpg"
-                  alt="OFC Installation"
+                  src="/it-solutions.jpg"
+                  alt="Technology Stack"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -209,70 +222,74 @@ const OFC = () => {
         </div>
       </section>
 
-      {/* Applications Section */}
+      {/* Process Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#00F0FF] text-sm font-semibold tracking-wider uppercase mb-4 block">
-              Applications
+              Our Process
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-4">
-              Industries We
-              <span className="text-[#00F0FF]"> Serve</span>
+              How We Build
+              <span className="text-[#00F0FF]"> Software</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {applications.map((app, index) => (
+          <div className="grid md:grid-cols-5 gap-6">
+            {process.map((step, index) => (
               <div
                 key={index}
-                className="p-6 bg-[#0A0A0A] rounded-lg border border-[#222] hover:border-[#00F0FF]/30 transition-colors"
+                className="p-6 bg-[#0A0A0A] rounded-lg border border-[#222] text-center"
               >
+                <span className="text-4xl font-bold text-[#00F0FF] font-['Space_Grotesk'] block mb-4">
+                  {step.step}
+                </span>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  {app.title}
+                  {step.title}
                 </h3>
-                <p className="text-white/60 text-sm">{app.description}</p>
+                <p className="text-white/60 text-sm">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Equipment Section */}
+      {/* AI Solutions Highlight */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <div className="aspect-video rounded-lg overflow-hidden border border-[#222]">
-                <img
-                  src="/networking.jpg"
-                  alt="Fiber Splicing"
-                  className="w-full h-full object-cover"
-                />
+              <div className="aspect-video rounded-lg overflow-hidden border border-[#222] bg-[#111] flex items-center justify-center">
+                <div className="text-center p-8">
+                  <Cpu className="w-24 h-24 text-[#00F0FF] mx-auto mb-6" />
+                  <h3 className="text-2xl font-bold text-white mb-2">AI-Powered</h3>
+                  <p className="text-white/60">Intelligent solutions for modern challenges</p>
+                </div>
               </div>
             </div>
 
             <div className="order-1 lg:order-2">
               <span className="text-[#00F0FF] text-sm font-semibold tracking-wider uppercase mb-4 block">
-                Our Equipment
+                AI Solutions
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-6">
-                State-of-the-Art
-                <span className="text-[#00F0FF]"> Technology</span>
+                Harness the Power of
+                <span className="text-[#00F0FF]"> Artificial Intelligence</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8">
-                We invest in the latest fiber deployment and testing equipment 
-                to ensure precision, efficiency, and quality in every project.
+                Transform your business with AI-driven solutions. From predictive 
+                analytics to intelligent automation, we help you leverage the power 
+                of machine learning and artificial intelligence.
               </p>
 
               <div className="space-y-4">
                 {[
-                  'Fusion splicers with advanced alignment systems',
-                  'OTDR testing equipment for loss measurement',
-                  'High-pressure fiber blowing machines',
-                  'Cable blowing and pulling equipment',
-                  'Fiber inspection microscopes',
-                  'Power meters and light sources',
+                  'Machine learning model development',
+                  'Natural language processing solutions',
+                  'Computer vision applications',
+                  'Predictive analytics and forecasting',
+                  'Intelligent process automation',
+                  'AI-powered chatbots and assistants',
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-[#00F0FF] mt-0.5 flex-shrink-0" />
@@ -289,18 +306,18 @@ const OFC = () => {
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl font-bold font-['Space_Grotesk'] mb-6">
-            Ready for Fiber
-            <span className="text-[#00F0FF]"> Deployment?</span>
+            Ready to Build Something
+            <span className="text-[#00F0FF]"> Amazing?</span>
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
-            Contact us to discuss your optical fiber cable requirements and 
-            get a comprehensive deployment plan.
+            Let's discuss your project requirements and create a technology solution 
+            that drives your business forward.
           </p>
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-flex items-center px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
           >
-            <span>Contact Our Team</span>
+            <span>Start Your Project</span>
             <ArrowRight className="w-5 h-5 ml-2" />
           </Link>
         </div>
@@ -309,4 +326,4 @@ const OFC = () => {
   );
 };
 
-export default OFC;
+export default ITSolutions;

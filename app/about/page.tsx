@@ -1,5 +1,6 @@
+"use client";
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   ArrowRight,
   Target,
@@ -311,7 +312,7 @@ const About = () => {
             discuss how we can help achieve your infrastructure goals.
           </p>
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-flex items-center px-8 py-4 bg-[#00F0FF] text-black font-semibold rounded hover:bg-[#00D0DD] transition-colors"
           >
             <span>Get in Touch</span>
